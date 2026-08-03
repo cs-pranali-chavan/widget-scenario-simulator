@@ -1,0 +1,11 @@
+{
+    "scenarioSimulator": {
+        "DESC_SIMULATE_SCENARIO": "프로덕션 시스템에 영향을 주거나 실제 연동에 연결하지 않고 다양한 보안 사용 사례에서 FortiSOAR의 사고 대응 기능을 체험할 수 있도록 시뮬레이션 시나리오를 실행합니다.",
+        "LABEL_SIMULATE_SCENARIO": "시나리오 시뮬레이션",
+        "LABEL_SIMULATING": "시뮬레이션 중",
+        "LABEL_VIEW_LESS": "접기",
+        "LABEL_VIEW_MORE": "더 보기",
+        "MSG_NO_RECORD_FOUND": "기록을 찾을 수 없습니다",
+        "PLACEHOLDER_SEARCH": "검색"
+    }
+}

@@ -1,0 +1,11 @@
+{
+    "scenarioSimulator": {
+        "DESC_SIMULATE_SCENARIO": "執行模擬情境，在不影響正式環境或連線至實際整合的情況下，體驗 FortiSOAR 在各種安全使用案例中的事件回應能力。",
+        "LABEL_SIMULATE_SCENARIO": "模擬場景",
+        "LABEL_SIMULATING": "模擬中",
+        "LABEL_VIEW_LESS": "摺疊",
+        "LABEL_VIEW_MORE": "展開",
+        "MSG_NO_RECORD_FOUND": "找不到記錄",
+        "PLACEHOLDER_SEARCH": "搜尋"
+  }
+}

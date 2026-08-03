@@ -1,0 +1,11 @@
+{
+    "scenarioSimulator": {
+        "DESC_SIMULATE_SCENARIO": "Run simulation scenarios to experience FortiSOAR's incident response capabilities across a range of security use cases without affecting production systems or connecting to live integrations.",
+        "LABEL_ITEM": "Item",
+        "LABEL_SIMULATE_SCENARIO": "Simulate Scenario",
+        "LABEL_SIMULATING" : "Simulating",
+        "LABEL_VIEW_LESS" : "View Less",
+        "LABEL_VIEW_MORE" : "View More",
+        "MSG_NO_RECORD_FOUND" : "No record found"
+    }
+}

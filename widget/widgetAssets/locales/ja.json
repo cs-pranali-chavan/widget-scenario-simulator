@@ -1,0 +1,11 @@
+{
+    "scenarioSimulator": {
+        "DESC_SIMULATE_SCENARIO": "本番環境に影響を与えたり実際の連携先へ接続したりすることなく、さまざまなセキュリティユースケースを通じて FortiSOAR のインシデント対応機能を体験できるシミュレーションシナリオを実行します。",
+        "LABEL_SIMULATE_SCENARIO": "シナリオをシミュレート",
+        "LABEL_SIMULATING": "シミュレーション中",
+        "LABEL_VIEW_LESS": "閉じる",
+        "LABEL_VIEW_MORE": "もっと見る",
+        "MSG_NO_RECORD_FOUND": "レコードが見つかりません",
+        "PLACEHOLDER_SEARCH": "検索"
+    }
+}

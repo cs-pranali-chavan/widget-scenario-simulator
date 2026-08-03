@@ -1,0 +1,141 @@
+
+/* Copyright (C) 2008 - 2026 Fortinet Inc.
+All rights reserved.
+FORTINET CONFIDENTIAL & FORTINET PROPRIETARY SOURCE CODE */
+
+.simulateContainer{
+    box-shadow: -8px 26px 34px 10px #00000070;
+    background: #1A2136;
+}
+
+.simulateContainer .titleHeader{
+    line-height: 20px;
+    letter-spacing: -2%;
+    font-size: 20px;
+}
+
+.simulateContainer .subTitle{
+    line-height: 20px;
+    letter-spacing: -2%;
+    font-size: 14px;
+    font-weight: 300;
+}
+
+.scenario-md{
+    max-height: 140px;
+    overflow-y: auto;
+}
+
+.simulateContainer .grid-actions{
+    padding-right: 5px !important;
+}
+
+.simulateContainer .imageBlock{
+    width: 81px;
+    height: 81px;
+    border-width: 1px;
+    border-radius: 4px;
+    background: #FFFFFF0A;
+    border: 1px solid #1A2136;
+    display: flex;
+    align-items: center;      /* Vertical center */
+    justify-content: center;  /* Horizontal center */
+    flex-shrink: 0;
+}
+
+.simulateContainer .simulateInfoCard{
+    background: #FFFFFF0A;
+    border-radius: 4px;
+}
+
+.simulateContainer .descriptionContainer{
+    border-bottom: 1px solid #000;
+}
+
+.simulateContainer .chip{
+    display: inline-flex;
+    align-items: center;
+    padding: 4px 12px;
+    border-radius: 16px;
+    background: #3C6DB799;
+    color: #FFF;
+    font-size: 12px;
+    font-weight: 500;
+    line-height: 20px;
+}
+
+.simulateContainer .parentContainer{
+    min-height: calc(100vh - 192px);
+    height: calc(100vh - 192px);
+    overflow-y: scroll;
+}
+
+.simulateContainer .countLabel{
+    line-height: 18px;
+    letter-spacing: -2%;
+}
+
+.simulateContainer .chipContainer{
+    width: 600px;
+    max-width: 600px;
+    overflow-x: auto;
+    overflow-y: hidden;
+    position: relative;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+    white-space: nowrap;
+}
+
+.chipContainer::-webkit-scrollbar {
+    display: none;
+}
+
+.simulateContainer #scenario-search.form-control{
+    height: 30px !important;
+}
+
+.simulateContainer label{
+    line-height: 18px;
+    letter-spacing: -2%;
+}
+
+.simulateContainer .mdEditor{
+    line-height: 20px;
+    letter-spacing: -2%;
+    color: #D5DCE9;
+    font-weight: 300;
+}
+
+.simulateContainer .mdEditor p,
+.simulateContainer .mdEditor strong{
+    line-height: 20px;
+    letter-spacing: -2%;
+    color: #D5DCE9;
+    font-weight: 300;
+}
+
+.simulateContainer .line-clamp {
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    word-break: break-word;
+    line-height: 22px;
+    max-height: 70px;
+}
+
+.simulateContainer .view-more {
+    display: inline-block;
+    margin-top: 6px;
+    line-height: 4px;
+    letter-spacing: -2%;
+    color: #6790DB;
+    cursor: pointer;
+    text-decoration: none;
+    font-size: 13px;
+    padding-left: 10px;
+}
+
+.simulateContainer .mainContainer{
+    height: calc(100vh - 50px);
+    min-height: calc(100vh - 50px);
+}

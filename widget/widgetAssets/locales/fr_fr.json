@@ -1,0 +1,11 @@
+{
+    "scenarioSimulator": {
+    "DESC_SIMULATE_SCENARIO": "Exécutez des scénarios de simulation pour découvrir les capacités de réponse aux incidents de FortiSOAR dans divers cas d’usage liés à la sécurité, sans affecter les systèmes de production ni vous connecter à des intégrations en direct.",
+    "LABEL_SIMULATE_SCENARIO": "Simuler un Scénario",
+    "LABEL_SIMULATING": "Simulation en cours",
+    "LABEL_VIEW_LESS": "Voir Moins",
+    "LABEL_VIEW_MORE": "Voir Plus",
+    "MSG_NO_RECORD_FOUND": "Aucun enregistrement trouvé",
+    "PLACEHOLDER_SEARCH": "Rechercher"
+  }
+}

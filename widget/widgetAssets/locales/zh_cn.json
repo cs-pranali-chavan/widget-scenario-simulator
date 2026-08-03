@@ -1,0 +1,11 @@
+{
+    "scenarioSimulator": {
+        "DESC_SIMULATE_SCENARIO": "运行模拟场景，在不影响生产系统或连接真实集成的情况下，体验 FortiSOAR 在各种安全用例中的事件响应能力。",
+        "LABEL_SIMULATE_SCENARIO": "模拟场景",
+        "LABEL_SIMULATING": "模拟中",
+        "LABEL_VIEW_LESS": "收起",
+        "LABEL_VIEW_MORE": "展开",
+        "MSG_NO_RECORD_FOUND": "未找到记录",
+        "PLACEHOLDER_SEARCH": "搜索"
+  }
+}
