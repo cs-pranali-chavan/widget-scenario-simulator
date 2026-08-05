@@ -43,7 +43,7 @@
                             </div>
                             <a href="" class="view-more" ng-if="scenario.showViewMore"
                                 ng-click="scenario.expanded = !scenario.expanded; $event.preventDefault()">
-                                {{ scenario.expanded ? ('scenarioSimulator.LABEL_VIEW_LESS' : 'scenarioSimulator.LABEL_VIEW_MORE' | translate) }}
+                                {{ (scenario.expanded ? 'scenarioSimulator.LABEL_VIEW_LESS' : 'scenarioSimulator.LABEL_VIEW_MORE') | translate }}
                             </a>
                         </div>
                     </div>
@@ -60,7 +60,7 @@
                                 <i class="{{ actionPlaybooks[scenario.createdAlertsID ? 'resetScenario' : 'runScenario'].icon }}"></i> <span> {{ actionPlaybooks[scenario.createdAlertsID ? 'resetScenario' : 'runScenario'].name }} </span>
                             </button>
                             <button class="btn btn-sm btn-default" type="button" data-ng-if="scenario.running" disabled="true">
-                                <i class="fa fa-spinner fa-spin"></i> <span>{{ scenario.createdAlertsID ? ('scenarioSimulator.LABEL_RESETTING' | translate) : ('scenarioSimulator.LABEL_SIMULATING' | translate)}} </span>
+                                <i class="fa fa-spinner fa-spin"></i> <span>{{ (scenario.createdAlertsID ? 'scenarioSimulator.LABEL_RESETTING' : 'scenarioSimulator.LABEL_SIMULATING' ) | translate}} </span>
                             </button>
                         </div>
                     </div>
