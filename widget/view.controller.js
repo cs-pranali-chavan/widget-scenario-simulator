@@ -20,7 +20,7 @@
     let delayTimer;
     let destroyCollection; 
     const iconPath = widgetBasePath + 'widgetAssets/images/noImage.png';
-    $scope.data = [];
+    $scope.scenarioData = [];
     $scope.totalItems = 0;
 
     $scope.fetchMDDescription = fetchMDDescription;
@@ -55,12 +55,12 @@
             const scenario = response.data['hydra:member'][0];
             scenario.descriptionHtml = markdownEditorService.mdToHTML(scenario.description);
             scenario.expanded = false;
-            scenario.icon = scenario.icon || iconPath;
-            const index = $scope.data.findIndex(function (item) {
+            scenario.icon = scenario.icon || `<img src="${iconPath}"/>`;
+            const index = $scope.scenarioData.findIndex(function (item) {
               return item.uuid === entityUuid;
             });
             if (index !== -1) {
-              $scope.data[index] = scenario;
+              $scope.scenarioData[index] = scenario;
             }
           } else {
             // API returned the full list
@@ -71,17 +71,17 @@
             data.forEach(function (scenario) {
               scenario.descriptionHtml = markdownEditorService.mdToHTML(scenario.description);
               scenario.expanded = false;
-              scenario.icon = scenario.icon || iconPath;
+              scenario.icon = scenario.icon || `<img src="${iconPath}"/>`;
             });
 
-            $scope.data = data;
+            $scope.scenarioData = data;
           }
 
           $timeout(function () {
             const elements = document.querySelectorAll('.mdEditor');
             angular.forEach(elements, function (el, index) {
-              if ($scope.data[index]) {
-                $scope.data[index].showViewMore =
+              if ($scope.scenarioData[index]) {
+                $scope.scenarioData[index].showViewMore =
                   el.scrollHeight > el.clientHeight;
               }
             });
@@ -107,7 +107,7 @@
           if (data.operation === 'update') {
             if (data.changeData && data.changeData.length > 0) {
               let foundField;
-              const found = _.find($scope.data, function (scenario) {
+              const found = _.find($scope.scenarioData, function (scenario) {
                 return data.entityUuid.indexOf(scenario['@id']) >= 0;
               });
               if (found) {
@@ -195,7 +195,7 @@
         playbookService.triggerPlaybookAction(actionPlaybook, () => [scenario], $scope, true, entity);
             //  websocketService.subscribe('runningworkflow' , function(result) {
             //   if(result.task_id && result.status && result.parent_wf === 'null' && (result.status === 'failed' || result.status === 'finished_with_error')){
-            //             $scope.data[index].running = actionPlaybook.processing;
+            //             $scope.scenarioData[index].running = actionPlaybook.processing;
             //   }
             // });
       });
@@ -204,11 +204,11 @@
     var triggerCompletedDestroy = $scope.$on('playbookActions:triggerCompleted', function (evt, data) {
       console.log(data);
       if (data.status === 'failed' || data.status === 'error') {
-        const index = $scope.data.findIndex(function (item) {
+        const index = $scope.scenarioData.findIndex(function (item) {
           return item['@id'] === data.records[0];
         });
         if (index !== -1) {
-          $scope.data[index].running = false;
+          $scope.scenarioData[index].running = false;
         }
       }
     })
@@ -218,7 +218,7 @@
     }
 
     $scope.getTotalCount = function () {
-      return ($scope.data || []).length;
+      return ($scope.scenarioData || []).length;
     };
 
     $scope.fullRefresh = function () {

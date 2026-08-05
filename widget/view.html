@@ -31,11 +31,11 @@
                 <cs-spinner></cs-spinner>
             </div>
             <div class="col-md-12 padding-0 parentContainer padding-right-md margin-top-md" data-ng-if="!loadingData">
-               <div data-ng-if="totalItems === 0">{{ :: 'APP.MESSAGE.NO_RESULTS' | translate}}</div>
-                <div data-ng-repeat="scenario in data;" class="simulateInfoCard display-table margin-top-sm full-width">
+               <div data-ng-if="totalItems === 0" class="text-muted font-075em text-center">{{ :: 'APP.MESSAGE.NO_RESULTS' | translate}}</div>
+                <div data-ng-repeat="scenario in scenarioData track by $index" class="simulateInfoCard display-table margin-top-sm full-width">
                     <div class="display-flex padding-md descriptionContainer">
                         <div class="imageBlock">
-                            <img data-ng-src="{{scenario.icon}}"/>
+                            <span data-ng-bind-html="scenario.icon">
                         </div>
                         <div class="padding-left-md">
                             <label class="margin-left-md">{{scenario.title}}</label>
@@ -43,7 +43,7 @@
                             </div>
                             <a href="" class="view-more" ng-if="scenario.showViewMore"
                                 ng-click="scenario.expanded = !scenario.expanded; $event.preventDefault()">
-                                {{ scenario.expanded ? ('scenarioSimulator.LABEL_VIEW_LESS' | translate) : ('scenarioSimulator.LABEL_VIEW_MORE' | translate) }}
+                                {{ scenario.expanded ? ('scenarioSimulator.LABEL_VIEW_LESS' : 'scenarioSimulator.LABEL_VIEW_MORE' | translate) }}
                             </a>
                         </div>
                     </div>

@@ -1,8 +1,43 @@
-
 /* Copyright start
   MIT License
   Copyright (c) 2026 Fortinet Inc
   Copyright end */
+
+.dark_scenarioSimulator, .steel_scenarioSimulator {
+    --container-bg : #1A2136;
+    --container-box-shadow : #00000070;
+    --icon-card-bg: #323B47;
+    --icon-border: #1A2136;
+    --card-desc-bg: #252F3C;
+    --card-divider: #000;
+    --chip-bg: #25A5AE99;
+    --desc-text-color : #fff;
+    --view-more-text: #25A5AE99;
+}
+
+.deepSea_scenarioSimulator {
+    --container-bg : #1A2136;
+    --container-box-shadow : #00000070;
+    --icon-card-bg: #FFFFFF0A;
+    --icon-border: #1A2136;
+    --card-desc-bg: #252F3C;
+    --card-divider: #000;
+    --chip-bg: #3C6DB799;
+    --desc-text-color : #fff;
+    --view-more-text: #6790DB;
+}
+
+.light_scenarioSimulator {
+    --container-bg : #fff;
+    --container-box-shadow : #d7d6d670; 
+    --icon-card-bg: #FAFAFA;
+    --icon-border: #D9DDE1;
+    --card-desc-bg: #FAFAFA;
+    --card-divider: #ebebeb;
+    --chip-bg:#4676b2; /* #659AEB; */
+    --desc-text-color : #000;
+    --view-more-text: #25A5AE99;
+}
 
 .simulateContainer{
     box-shadow: -8px 26px 34px 10px var(--container-box-shadow);
@@ -42,6 +77,10 @@
     align-items: center;      /* Vertical center */
     justify-content: center;  /* Horizontal center */
     flex-shrink: 0;
+}
+
+.simulateContainer .imageBlock p{
+    margin : 0;
 }
 
 .simulateContainer .simulateInfoCard{

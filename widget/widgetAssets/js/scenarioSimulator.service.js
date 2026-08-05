@@ -24,7 +24,7 @@
         logic: 'AND',
         limit: 30,
         filters: [],
-        __selectFields: ['title', 'description', 'createdAlertsID', 'recordTags']
+        __selectFields: ['title', 'description', 'createdAlertsID', 'recordTags', 'icon']
       };
         if (entityUuid) {
             payload.filters.push({
