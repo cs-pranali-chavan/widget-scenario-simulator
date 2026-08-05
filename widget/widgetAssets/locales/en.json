@@ -1,8 +1,11 @@
 {
     "scenarioSimulator": {
-        "DESC_SIMULATE_SCENARIO": "Run simulation scenarios to experience FortiSOAR's incident response capabilities across a range of security use cases without affecting production systems or connecting to live integrations.",
+        "BTN_RESET_SCENARIO": "Reset Scenario",
+        "BTN_RUN_SCENARIO": "Run Scenario",
+        "DESC_SIMULATE_SCENARIO": "Choose a scenario to simulate. The simulator generates realistic security events, alerts, and attacker activity that mimic real-world incidents, allowing you to safely test detection, investigation, and response workflows.",
         "LABEL_ITEM": "Item",
-        "LABEL_SIMULATE_SCENARIO": "Simulate Scenario",
+        "LABEL_RESETTING" : "Resetting",
+        "LABEL_SIMULATE_SCENARIO": "Scenario Simulator",
         "LABEL_SIMULATING" : "Simulating",
         "LABEL_VIEW_LESS" : "View Less",
         "LABEL_VIEW_MORE" : "View More",

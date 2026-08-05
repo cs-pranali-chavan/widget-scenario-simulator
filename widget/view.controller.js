@@ -8,10 +8,11 @@
     .module('cybersponse')
     .controller('scenarioSimulator100Ctrl', scenarioSimulator100Ctrl);
 
-  scenarioSimulator100Ctrl.$inject = ['$scope', '$http', 'Entity', 'playbookService', 'widgetBasePath', 'websocketService', '$timeout', 'markdownEditorService', 'API', '$filter', '$q', 'scenarioSimulatorService'];
+  scenarioSimulator100Ctrl.$inject = ['$scope', 'Entity', 'playbookService', 'widgetBasePath', 'websocketService', '$timeout', 'markdownEditorService', '$q', 'scenarioSimulatorService' , '$rootScope', 'translationService'];
 
-  function scenarioSimulator100Ctrl($scope, $http, Entity, playbookService, widgetBasePath, websocketService, $timeout, markdownEditorService, API, $filter, $q, scenarioSimulatorService) {
+  function scenarioSimulator100Ctrl($scope, Entity, playbookService, widgetBasePath, websocketService, $timeout, markdownEditorService, $q, scenarioSimulatorService, $rootScope, translationService) {
     const CURRENT_MODULE = 'scenario';
+    $scope.currentTheme = $rootScope.theme.id + '_scenarioSimulator';
     let entity = new Entity(CURRENT_MODULE);
     let websocketProcessingTime = new Date();
     const websocketThresholdTime = 10000;//10 seconds threshold set to refresh grid
@@ -28,13 +29,13 @@
     $scope.actionPlaybooks = {
       runScenario: {
         'id': '/api/3/workflows/a10522ac-2622-40bd-ad79-4487d9a1d7d7',
-        'name': 'Run Scenario',
+        'name': translationService.instantTranslate('scenarioSimulator.BTN_RUN_SCENARIO'),
         'icon': 'fa fa-play',
         'btnClass': 'btn-primary'
       },
       resetScenario: {
         'id': '/api/3/workflows/98506caa-32ab-429d-9c0f-42d92a71b5d1',
-        'name': 'Reset Scenario',
+        'name': translationService.instantTranslate('scenarioSimulator.BTN_RESET_SCENARIO'),
         'icon': 'fa fa-repeat',
         'btnClass': 'btn-default'
       }
@@ -47,33 +48,52 @@
       });
     }
 
+    function populateData(entityUuid) {
+      scenarioSimulatorService.fetchData(CURRENT_MODULE, $scope.config.searchText, entityUuid).then(function (response) {
+            if (entityUuid) {
+            // API returned a single scenario
+            const scenario = response.data['hydra:member'][0];
+            scenario.descriptionHtml = markdownEditorService.mdToHTML(scenario.description);
+            scenario.expanded = false;
+            scenario.icon = scenario.icon || iconPath;
+            const index = $scope.data.findIndex(function (item) {
+              return item.uuid === entityUuid;
+            });
+            if (index !== -1) {
+              $scope.data[index] = scenario;
+            }
+          } else {
+            // API returned the full list
+            $scope.loadingData = true;
+            const data = response.data['hydra:member'];
+            $scope.totalItems = response.data['hydra:totalItems'];
 
-    function populateData() {
-      $scope.loadingData = true;
-      scenarioSimulatorService.fetchData(CURRENT_MODULE, $scope.config.searchText).then(function (response) {
-        const data = response.data['hydra:member'];
-        $scope.totalItems = response.data['hydra:totalItems'];
-        data.forEach(function (scenario) {
-          scenario.descriptionHtml = markdownEditorService.mdToHTML(scenario.description);
-          scenario.expanded = false;
-          scenario.icon = scenario.icon || iconPath;
-        });
-        $scope.data = data;
-        $timeout(function () {
-          const elements = document.querySelectorAll('.mdEditor');
-          angular.forEach(elements, function (el, index) {
-            const scenario = $scope.data[index];
-            scenario.showViewMore = el.scrollHeight > el.clientHeight;
-          });
-          $scope.$applyAsync();
-          if (!webSocketSubscription) {
-            initWebsocket();
+            data.forEach(function (scenario) {
+              scenario.descriptionHtml = markdownEditorService.mdToHTML(scenario.description);
+              scenario.expanded = false;
+              scenario.icon = scenario.icon || iconPath;
+            });
+
+            $scope.data = data;
           }
-        });
 
-      }).finally(function () {
-        $scope.loadingData = false;
-      });
+          $timeout(function () {
+            const elements = document.querySelectorAll('.mdEditor');
+            angular.forEach(elements, function (el, index) {
+              if ($scope.data[index]) {
+                $scope.data[index].showViewMore =
+                  el.scrollHeight > el.clientHeight;
+              }
+            });
+            $scope.$applyAsync();
+            if (!webSocketSubscription) {
+              initWebsocket();
+            }
+          });
+        })
+        .finally(function () {
+          $scope.loadingData = false;
+        });
     }
 
     function fetchMDDescription(description) {
@@ -95,7 +115,7 @@
                 foundField = _mapKeys.some(item => data.changeData.includes(item));
               }
               if (foundField || data.changeData.indexOf('deletedAt') >= 0) {
-                websocketRefresh();
+                websocketRefresh(found['uuid']);
               }
             }
           }
@@ -110,14 +130,14 @@
       populateData();
     }
 
-    function websocketRefresh() {
+    function websocketRefresh(entityId) {
       if (websocketThresholdTime < (new Date().getTime() - websocketProcessingTime.getTime())) {
         websocketProcessingTime = new Date();
-        populateData();
+        populateData(entityId);
       } else {
         $timeout.cancel(delayTimer);
         delayTimer = $timeout(function () {
-          populateData();
+          populateData(entityId);
         }, 5000);
       }
     }
@@ -148,9 +168,12 @@
       if (destroyCollection) {
         destroyCollection();
       }
+      if(triggerCompletedDestroy){
+        triggerCompletedDestroy();
+      }
     });
 
-    $scope.triggerScenario = function (scenario) {
+    $scope.triggerScenario = function (scenario, index) {
       scenario.running = true;
       const defer = $q.defer();
       const scenarioAction = scenario.createdAlertsID ? 'resetScenario' : 'runScenario';
@@ -159,7 +182,7 @@
         defer.resolve(playbook);
       } else {
         const playbookIRI = $scope.actionPlaybooks[scenarioAction].id;
-        getPlaybook(playbookIRI).then(function (response) {
+        scenarioSimulatorService.getPlaybook(playbookIRI, CURRENT_MODULE).then(function (response) {
           $scope.actionPlaybooks[scenarioAction].playbook = response.data;
           defer.resolve(response.data);
         }, function () {
@@ -168,29 +191,27 @@
       }
       defer.promise.then(function (playbook) {
         const actionPlaybook = angular.copy(playbook);
+        // let scope = angular.copy($scope);
         playbookService.triggerPlaybookAction(actionPlaybook, () => [scenario], $scope, true, entity);
+            //  websocketService.subscribe('runningworkflow' , function(result) {
+            //   if(result.task_id && result.status && result.parent_wf === 'null' && (result.status === 'failed' || result.status === 'finished_with_error')){
+            //             $scope.data[index].running = actionPlaybook.processing;
+            //   }
+            // });
       });
     }
 
-    function getPlaybook(playbookIRI) {
-      const defer = $q.defer();
-      if (playbookService.loadedPlaybookActions && playbookService.loadedPlaybookActions[CURRENT_MODULE]) {
-        const playbook = _.find(playbookService.loadedPlaybookActions[CURRENT_MODULE].playbooks, function (pb) {
-          return pb['@id'] === playbookIRI;
+    var triggerCompletedDestroy = $scope.$on('playbookActions:triggerCompleted', function (evt, data) {
+      console.log(data);
+      if (data.status === 'failed' || data.status === 'error') {
+        const index = $scope.data.findIndex(function (item) {
+          return item['@id'] === data.records[0];
         });
-        if (playbook) {
-          defer.resolve({ data: playbook });
-          return defer.promise;
+        if (index !== -1) {
+          $scope.data[index].running = false;
         }
       }
-      const playbookUUID = $filter('getEndPathName')(playbookIRI);
-      $http.get(`${API.BASE}${API.WORKFLOWS}${playbookUUID}?$relationships=true`).then(function (response) {
-        defer.resolve(response);
-      }, function (error) {
-        defer.reject(error);
-      });
-      return defer.promise;
-    }
+    })
 
     $scope.getAllSelectedRows = function (row) {
       return [row.entity];

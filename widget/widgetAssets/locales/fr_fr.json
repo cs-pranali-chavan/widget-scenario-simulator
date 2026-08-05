@@ -1,5 +1,7 @@
 {
     "scenarioSimulator": {
+    "BTN_RESET_SCENARIO": "Réinitialiser le scénario",
+    "BTN_RUN_SCENARIO": "Exécuter le scénario",
     "DESC_SIMULATE_SCENARIO": "Exécutez des scénarios de simulation pour découvrir les capacités de réponse aux incidents de FortiSOAR dans divers cas d’usage liés à la sécurité, sans affecter les systèmes de production ni vous connecter à des intégrations en direct.",
     "LABEL_SIMULATE_SCENARIO": "Simuler un Scénario",
     "LABEL_SIMULATING": "Simulation en cours",

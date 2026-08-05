@@ -9,15 +9,16 @@
     .module('cybersponse')
     .factory('scenarioSimulatorService', scenarioSimulatorService);
 
-  scenarioSimulatorService.$inject = ['$http', 'API'];
+  scenarioSimulatorService.$inject = ['$http', 'API', 'playbookService', '$q'];
 
-  function scenarioSimulatorService($http, API) {
+  function scenarioSimulatorService($http, API, playbookService, $q) {
     var service;
     service = {
-      fetchData: fetchData
+      fetchData: fetchData,
+      getPlaybook: getPlaybook
     };
 
-    function fetchData( module, searchText) {
+    function fetchData( module, searchText, entityUuid) {
       const payload = {
         sort: [{ field: 'createDate', direction: 'DESC' }],
         logic: 'AND',
@@ -25,6 +26,14 @@
         filters: [],
         __selectFields: ['title', 'description', 'createdAlertsID', 'recordTags']
       };
+        if (entityUuid) {
+            payload.filters.push({
+                field: 'uuid',
+                operator: 'like',
+                value: entityUuid,
+                type: 'primitive'
+            });
+        }
       if (searchText) {
         payload.filters.push({
           logic: 'OR',
@@ -36,6 +45,26 @@
         });
       }
       return $http.post(API.QUERY + module, payload);
+    }
+
+    function getPlaybook(playbookIRI, module) {
+      const defer = $q.defer();
+      if (playbookService.loadedPlaybookActions && playbookService.loadedPlaybookActions[module]) {
+        const playbook = _.find(playbookService.loadedPlaybookActions[module].playbooks, function (pb) {
+          return pb['@id'] === playbookIRI;
+        });
+        if (playbook) {
+          defer.resolve({ data: playbook });
+          return defer.promise;
+        }
+      }
+      const playbookUUID = $filter('getEndPathName')(playbookIRI);
+      $http.get(`${API.BASE}${API.WORKFLOWS}${playbookUUID}?$relationships=true`).then(function (response) {
+        defer.resolve(response);
+      }, function (error) {
+        defer.reject(error);
+      });
+      return defer.promise;
     }
 
     return service;

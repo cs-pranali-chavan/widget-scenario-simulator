@@ -5,8 +5,8 @@
   Copyright end */
 
 .simulateContainer{
-    box-shadow: -8px 26px 34px 10px #00000070;
-    background: #1A2136;
+    box-shadow: -8px 26px 34px 10px var(--container-box-shadow);
+    background: var(--container-bg);
 }
 
 .simulateContainer .titleHeader{
@@ -36,8 +36,8 @@
     height: 81px;
     border-width: 1px;
     border-radius: 4px;
-    background: #FFFFFF0A;
-    border: 1px solid #1A2136;
+    background: var(--icon-card-bg);
+    border: 1px solid var(--icon-border);
     display: flex;
     align-items: center;      /* Vertical center */
     justify-content: center;  /* Horizontal center */
@@ -45,12 +45,12 @@
 }
 
 .simulateContainer .simulateInfoCard{
-    background: #FFFFFF0A;
+    background: var(--card-desc-bg);
     border-radius: 4px;
 }
 
 .simulateContainer .descriptionContainer{
-    border-bottom: 1px solid #000;
+    border-bottom: 1px solid var(--card-divider);
 }
 
 .simulateContainer .chip{
@@ -58,7 +58,7 @@
     align-items: center;
     padding: 4px 12px;
     border-radius: 16px;
-    background: #3C6DB799;
+    background: var(--chip-bg);
     color: #FFF;
     font-size: 12px;
     font-weight: 500;
@@ -103,7 +103,7 @@
 .simulateContainer .mdEditor{
     line-height: 20px;
     letter-spacing: -2%;
-    color: #D5DCE9;
+    color: var(--desc-text-color);
     font-weight: 300;
 }
 
@@ -111,7 +111,7 @@
 .simulateContainer .mdEditor strong{
     line-height: 20px;
     letter-spacing: -2%;
-    color: #D5DCE9;
+    color: var(--desc-text-color);
     font-weight: 300;
 }
 
@@ -129,7 +129,7 @@
     margin-top: 6px;
     line-height: 4px;
     letter-spacing: -2%;
-    color: #6790DB;
+    color: var(--view-more-text);
     cursor: pointer;
     text-decoration: none;
     font-size: 13px;

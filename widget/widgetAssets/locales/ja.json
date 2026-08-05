@@ -1,5 +1,7 @@
 {
     "scenarioSimulator": {
+        "BTN_RESET_SCENARIO": "シナリオをリセット",
+        "BTN_RUN_SCENARIO": "シナリオを実行",
         "DESC_SIMULATE_SCENARIO": "本番環境に影響を与えたり実際の連携先へ接続したりすることなく、さまざまなセキュリティユースケースを通じて FortiSOAR のインシデント対応機能を体験できるシミュレーションシナリオを実行します。",
         "LABEL_SIMULATE_SCENARIO": "シナリオをシミュレート",
         "LABEL_SIMULATING": "シミュレーション中",
