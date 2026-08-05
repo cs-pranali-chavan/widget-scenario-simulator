@@ -168,9 +168,6 @@
       if (destroyCollection) {
         destroyCollection();
       }
-      if(triggerCompletedDestroy){
-        triggerCompletedDestroy();
-      }
     });
 
     $scope.triggerScenario = function (scenario, index) {
@@ -191,27 +188,9 @@
       }
       defer.promise.then(function (playbook) {
         const actionPlaybook = angular.copy(playbook);
-        // let scope = angular.copy($scope);
         playbookService.triggerPlaybookAction(actionPlaybook, () => [scenario], $scope, true, entity);
-            //  websocketService.subscribe('runningworkflow' , function(result) {
-            //   if(result.task_id && result.status && result.parent_wf === 'null' && (result.status === 'failed' || result.status === 'finished_with_error')){
-            //             $scope.scenarioData[index].running = actionPlaybook.processing;
-            //   }
-            // });
       });
     }
-
-    var triggerCompletedDestroy = $scope.$on('playbookActions:triggerCompleted', function (evt, data) {
-      console.log(data);
-      if (data.status === 'failed' || data.status === 'error') {
-        const index = $scope.scenarioData.findIndex(function (item) {
-          return item['@id'] === data.records[0];
-        });
-        if (index !== -1) {
-          $scope.scenarioData[index].running = false;
-        }
-      }
-    })
 
     $scope.getAllSelectedRows = function (row) {
       return [row.entity];
