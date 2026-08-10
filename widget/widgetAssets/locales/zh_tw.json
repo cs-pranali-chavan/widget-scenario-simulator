@@ -1,0 +1,13 @@
+{
+  "scenarioSimulator": {
+    "BTN_RESET_SCENARIO": "重設情境",
+    "BTN_RUN_SCENARIO": "執行情境",
+    "DESC_SIMULATE_SCENARIO": "選擇要模擬的情境。模擬器會產生逼真的安全事件、警示及攻擊者活動，以模擬真實世界的安全事件，讓您能夠安全地測試偵測、調查及回應工作流程。",
+    "LABEL_ITEM": "項目",
+    "LABEL_RESETTING": "重設中",
+    "LABEL_SIMULATE_SCENARIO": "情境模擬器",
+    "LABEL_SIMULATING": "模擬中",
+    "LABEL_VIEW_LESS": "顯示較少",
+    "LABEL_VIEW_MORE": "顯示更多"
+  }
+}

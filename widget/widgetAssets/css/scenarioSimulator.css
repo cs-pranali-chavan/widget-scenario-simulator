@@ -1,0 +1,181 @@
+/* Copyright start
+  MIT License
+  Copyright (c) 2026 Fortinet Inc
+  Copyright end */
+
+.dark_scenarioSimulator, .steel_scenarioSimulator {
+    --container-bg : #1A2136;
+    --container-box-shadow : #00000070;
+    --icon-card-bg: #323B47;
+    --icon-border: #1A2136;
+    --card-desc-bg: #252F3C;
+    --card-divider: #000;
+    --chip-bg: #25A5AE99;
+    --desc-text-color : #fff;
+    --view-more-text: #25A5AE99;
+}
+
+.deepSea_scenarioSimulator {
+    --container-bg : #1A2136;
+    --container-box-shadow : #00000070;
+    --icon-card-bg: #FFFFFF0A;
+    --icon-border: #1A2136;
+    --card-desc-bg: #252F3C;
+    --card-divider: #000;
+    --chip-bg: #3C6DB799;
+    --desc-text-color : #fff;
+    --view-more-text: #6790DB;
+}
+
+.light_scenarioSimulator {
+    --container-bg : #fff;
+    --container-box-shadow : #d7d6d670; 
+    --icon-card-bg: #FAFAFA;
+    --icon-border: #D9DDE1;
+    --card-desc-bg: #FAFAFA;
+    --card-divider: #ebebeb;
+    --chip-bg:#4676b2; /* #659AEB; */
+    --desc-text-color : #000;
+    --view-more-text: #25A5AE99;
+}
+
+.simulateContainer{
+    box-shadow: -8px 26px 34px 10px var(--container-box-shadow);
+    background: var(--container-bg);
+}
+
+.simulateContainer .titleHeader{
+    line-height: 20px;
+    letter-spacing: -2%;
+    font-size: 20px;
+}
+
+.simulateContainer .subTitle{
+    line-height: 20px;
+    letter-spacing: -2%;
+    font-size: 14px;
+    font-weight: 300;
+}
+
+.scenario-md{
+    max-height: 140px;
+    overflow-y: auto;
+}
+
+.simulateContainer .grid-actions{
+    padding-right: 5px !important;
+}
+
+.simulateContainer .imageBlock{
+    width: 81px;
+    height: 81px;
+    border-width: 1px;
+    border-radius: 4px;
+    background: var(--icon-card-bg);
+    border: 1px solid var(--icon-border);
+    display: flex;
+    align-items: center;      /* Vertical center */
+    justify-content: center;  /* Horizontal center */
+    flex-shrink: 0;
+}
+
+.simulateContainer .imageBlock p{
+    margin : 0;
+}
+
+.simulateContainer .simulateInfoCard{
+    background: var(--card-desc-bg);
+    border-radius: 4px;
+}
+
+.simulateContainer .descriptionContainer{
+    border-bottom: 1px solid var(--card-divider);
+}
+
+.simulateContainer .chip{
+    display: inline-flex;
+    align-items: center;
+    padding: 4px 12px;
+    border-radius: 16px;
+    background: var(--chip-bg);
+    color: #FFF;
+    font-size: 12px;
+    font-weight: 500;
+    line-height: 20px;
+}
+
+.simulateContainer .parentContainer{
+    min-height: calc(100vh - 192px);
+    height: calc(100vh - 192px);
+    overflow-y: scroll;
+}
+
+.simulateContainer .countLabel{
+    line-height: 18px;
+    letter-spacing: -2%;
+}
+
+.simulateContainer .chipContainer{
+    width: 600px;
+    max-width: 600px;
+    overflow-x: auto;
+    overflow-y: hidden;
+    position: relative;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+    white-space: nowrap;
+}
+
+.chipContainer::-webkit-scrollbar {
+    display: none;
+}
+
+.simulateContainer #scenario-search.form-control{
+    height: 30px !important;
+}
+
+.simulateContainer label{
+    line-height: 18px;
+    letter-spacing: -2%;
+}
+
+.simulateContainer .mdEditor{
+    line-height: 20px;
+    letter-spacing: -2%;
+    color: var(--desc-text-color);
+    font-weight: 300;
+}
+
+.simulateContainer .mdEditor p,
+.simulateContainer .mdEditor strong{
+    line-height: 20px;
+    letter-spacing: -2%;
+    color: var(--desc-text-color);
+    font-weight: 300;
+}
+
+.simulateContainer .line-clamp {
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    word-break: break-word;
+    line-height: 22px;
+    max-height: 70px;
+}
+
+.simulateContainer .view-more {
+    display: inline-block;
+    margin-top: 6px;
+    line-height: 4px;
+    letter-spacing: -2%;
+    color: var(--view-more-text);
+    cursor: pointer;
+    text-decoration: none;
+    font-size: 13px;
+    padding-left: 10px;
+}
+
+.simulateContainer .mainContainer{
+    height: calc(100vh - 50px);
+    min-height: calc(100vh - 50px);
+}

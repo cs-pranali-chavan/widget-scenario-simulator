@@ -1,0 +1,13 @@
+{
+  "scenarioSimulator": {
+    "BTN_RESET_SCENARIO": "Réinitialiser le scénario",
+    "BTN_RUN_SCENARIO": "Exécuter le scénario",
+    "DESC_SIMULATE_SCENARIO": "Choisissez un scénario à simuler. Le simulateur génère des événements de sécurité, des alertes et des activités d'attaquants réalistes qui reproduisent des incidents réels, vous permettant de tester en toute sécurité les flux de détection, d'investigation et de réponse.",
+    "LABEL_ITEM": "Élément",
+    "LABEL_RESETTING": "Réinitialisation",
+    "LABEL_SIMULATE_SCENARIO": "Simulateur de scénarios",
+    "LABEL_SIMULATING": "Simulation en cours",
+    "LABEL_VIEW_LESS": "Voir moins",
+    "LABEL_VIEW_MORE": "Voir plus"
+  }
+}

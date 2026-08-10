@@ -1,0 +1,13 @@
+{
+  "scenarioSimulator": {
+    "BTN_RESET_SCENARIO": "重置场景",
+    "BTN_RUN_SCENARIO": "运行场景",
+    "DESC_SIMULATE_SCENARIO": "选择要模拟的场景。模拟器会生成逼真的安全事件、警报和攻击者活动，以模拟真实世界的安全事件，从而帮助您安全地测试检测、调查和响应工作流程。",
+    "LABEL_ITEM": "项目",
+    "LABEL_RESETTING": "正在重置",
+    "LABEL_SIMULATE_SCENARIO": "场景模拟器",
+    "LABEL_SIMULATING": "正在模拟",
+    "LABEL_VIEW_LESS": "收起",
+    "LABEL_VIEW_MORE": "查看更多"
+  }
+}
