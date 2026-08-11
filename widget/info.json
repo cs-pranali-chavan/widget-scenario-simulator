@@ -23,7 +23,7 @@
         },
 		"logo": "data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz4KPHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgdmlld0JveD0iMCAwIDI0IDI0IiBmaWxsPSJub25lIj4KICA8cGF0aCBkPSJNNy4wNzkwOSAxLjIxMzM2TDIwLjIwNzggOS4yMzYwNEMyMS43MTQ3IDEwLjE1NzEgMjIuMjAwNiAxMi4xNDI4IDIxLjI5MjYgMTMuNjcxNEMyMS4wMjQzIDE0LjEyMjggMjAuNjUxNCAxNC41MDExIDIwLjIwNjQgMTQuNzcyNUw3LjA3NzcgMjIuNzg2N0M1LjU3MDEzIDIzLjcwNzEgMy42MTM0IDIzLjIxMzUgMi43MDYwOCAyMS42ODQyQzIuNDA4MDQgMjEuMTgxNSAyLjI1IDIwLjYwNDkgMi4yNSAyMC4wMTg1VjMuOTgwODdDMi4yNSAyLjE5NjMzIDMuNjc1NzggMC43NSA1LjQzNDk3IDAuNzVDNi4wMTQ0MyAwLjc1IDYuNTgyOCAwLjkxMDMxMyA3LjA3OTA5IDEuMjEzMzZaIiBmaWxsPSJ3aGl0ZSI+PC9wYXRoPgo8L3N2Zz4K",
         "compatibility": [
-            "8.0.0"
+            "8.0.1"
         ],
         "category": [
             "Breach and Attack Simulation (BAS)"
