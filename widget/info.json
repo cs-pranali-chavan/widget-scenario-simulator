@@ -3,13 +3,13 @@
     "title": "Scenario Simulator",
     "subTitle": "Scenario Simulator",
     "version": "1.0.0",
-    "published_date": 1783425831,
+    "published_date": 1789015743,
     "releaseNotes": "unavailable",
     "metadata": {
         "description": "Information listing of Scenario Simulation",
         "pages": [],
         "certified": "Yes",
-        "publisher": null,
+        "publisher": "Fortinet",
         "contexts": [
             "drawer"
         ],
