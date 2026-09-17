@@ -41,7 +41,7 @@
                             <label class="margin-left-md">{{scenario.title}}</label>
                             <div class="padding-md font-size-13 mdEditor" ng-class="{'line-clamp': !scenario.expanded}" id="scenario-md-{{$index}}" data-ng-bind-html="scenario.descriptionHtml">
                             </div>
-                            <a href="" class="view-more" ng-if="scenario.showViewMore"
+                            <a href="" class="view-more" ng-if="scenario.showViewMore && scenario.descriptionHtml !== ''" 
                                 ng-click="scenario.expanded = !scenario.expanded; $event.preventDefault()">
                                 {{ (scenario.expanded ? 'scenarioSimulator.LABEL_VIEW_LESS' : 'scenarioSimulator.LABEL_VIEW_MORE') | translate }}
                             </a>

@@ -9,7 +9,7 @@
         "description": "Information listing of Scenario Simulation",
         "pages": [],
         "certified": "Yes",
-        "publisher": null,
+        "publisher": "Fortinet",
         "contexts": [
             "drawer"
         ],
