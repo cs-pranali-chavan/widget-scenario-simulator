@@ -14,6 +14,8 @@
     const CURRENT_MODULE = 'scenario';
     $scope.currentTheme = $rootScope.theme.id + '_scenarioSimulator';
     $scope.scenarioPermissions = currentPermissionsService.getPermission('scenario');
+    $scope.playbookPermission = currentPermissionsService.getPermission('workflows');
+
     let entity = new Entity(CURRENT_MODULE);
     let websocketProcessingTime = new Date();
     const websocketThresholdTime = 10000;//10 seconds threshold set to refresh grid
@@ -44,9 +46,11 @@
 
     function init() {
       $scope.loadingData = true;
-      entity.loadFields().then(function () {
-        populateData();
-      });
+      if ($scope.scenarioPermissions.read) {
+        entity.loadFields().then(function () {
+          populateData();
+        });
+      }
     }
 
     function populateData(entityUuid) {
@@ -150,10 +154,8 @@
     });
 
     $scope.$on('popupOpened', function (data) {
-      if (data === $scope.config.name + '_' + $scope.config.version) {
-        $scope.searchContent();
-        initWebsocket();
-      }
+      $scope.fullRefresh();
+      initWebsocket();
     });
 
     function unsubscribe() {
