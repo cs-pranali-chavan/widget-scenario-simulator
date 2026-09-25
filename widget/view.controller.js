@@ -8,11 +8,12 @@
     .module('cybersponse')
     .controller('scenarioSimulator100Ctrl', scenarioSimulator100Ctrl);
 
-  scenarioSimulator100Ctrl.$inject = ['$scope', 'Entity', 'playbookService', 'widgetBasePath', 'websocketService', '$timeout', 'markdownEditorService', '$q', 'scenarioSimulatorService' , '$rootScope', 'translationService'];
+  scenarioSimulator100Ctrl.$inject = ['$scope', 'Entity', 'playbookService', 'widgetBasePath', 'websocketService', '$timeout', 'markdownEditorService', '$q', 'scenarioSimulatorService' , '$rootScope', 'translationService', 'currentPermissionsService'];
 
-  function scenarioSimulator100Ctrl($scope, Entity, playbookService, widgetBasePath, websocketService, $timeout, markdownEditorService, $q, scenarioSimulatorService, $rootScope, translationService) {
+  function scenarioSimulator100Ctrl($scope, Entity, playbookService, widgetBasePath, websocketService, $timeout, markdownEditorService, $q, scenarioSimulatorService, $rootScope, translationService, currentPermissionsService) {
     const CURRENT_MODULE = 'scenario';
     $scope.currentTheme = $rootScope.theme.id + '_scenarioSimulator';
+    $scope.scenarioPermissions = currentPermissionsService.getPermission('scenario');
     let entity = new Entity(CURRENT_MODULE);
     let websocketProcessingTime = new Date();
     const websocketThresholdTime = 10000;//10 seconds threshold set to refresh grid
