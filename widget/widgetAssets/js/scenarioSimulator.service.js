@@ -9,9 +9,9 @@
     .module('cybersponse')
     .factory('scenarioSimulatorService', scenarioSimulatorService);
 
-  scenarioSimulatorService.$inject = ['$http', 'API', 'playbookService', '$q'];
+  scenarioSimulatorService.$inject = ['$http', 'API', 'playbookService', '$q', 'ALL_RECORDS_SIZE'];
 
-  function scenarioSimulatorService($http, API, playbookService, $q) {
+  function scenarioSimulatorService($http, API, playbookService, $q, ALL_RECORDS_SIZE) {
     var service;
     service = {
       fetchData: fetchData,
@@ -22,7 +22,7 @@
       const payload = {
         sort: [{ field: 'createDate', direction: 'DESC' }],
         logic: 'AND',
-        limit: 30,
+        limit: ALL_RECORDS_SIZE,
         filters: [],
         __selectFields: ['title', 'description', 'createdAlertsID', 'recordTags', 'icon']
       };
