@@ -1,12 +1,12 @@
 {
     "name": "scenarioSimulator",
     "title": "Scenario Simulator",
-    "subTitle": "Scenario Simulator",
+    "subTitle": "The Scenario Simulator widget lists the scenarios available in your FortiSOAR environment and lets you run or reset a simulation",
     "version": "1.0.0",
     "published_date": 1783425831,
     "releaseNotes": "unavailable",
     "metadata": {
-        "description": "Information listing of Scenario Simulation",
+        "description": "The Scenario Simulator widget lists the scenarios available in your FortiSOAR environment and lets you run or reset a simulation",
         "pages": [],
         "certified": "Yes",
         "publisher": null,
