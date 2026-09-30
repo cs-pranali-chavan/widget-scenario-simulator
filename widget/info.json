@@ -1,15 +1,15 @@
 {
     "name": "scenarioSimulator",
     "title": "Scenario Simulator",
-    "subTitle": "Scenario Simulator",
+    "subTitle": "The Scenario Simulator widget lists the scenarios available in your FortiSOAR environment and lets you run or reset a simulation",
     "version": "1.0.0",
-    "published_date": 1783425831,
+    "published_date": 1790663959,
     "releaseNotes": "unavailable",
     "metadata": {
-        "description": "Information listing of Scenario Simulation",
+        "description": "The Scenario Simulator widget lists the scenarios available in your FortiSOAR environment and lets you run or reset a simulation",
         "pages": [],
         "certified": "Yes",
-        "publisher": null,
+        "publisher": "Fortinet",
         "contexts": [
             "drawer"
         ],
@@ -29,7 +29,8 @@
             "Breach and Attack Simulation (BAS)"
         ],
         "standalone": true,
-        "windowClass": "Half Width"
+        "windowClass": "Half Width",
+        "help_online":"https://gitlab-van.corp.fortinet.com/fortisoar/widgets/widget-scenario-simulator/-/blob/release/1.0.0/README.md"
     },
     "development": false
 }

@@ -39,9 +39,9 @@
                         </div>
                         <div class="padding-left-md">
                             <label class="margin-left-md">{{scenario.title}}</label>
-                            <div class="padding-md font-size-13 mdEditor" ng-class="{'line-clamp': !scenario.expanded}" id="scenario-md-{{$index}}" data-ng-bind-html="::scenario.descriptionHtml">
+                            <div class="padding-md font-size-13 mdEditor" ng-class="{'line-clamp': !scenario.expanded}" id="scenario-md-{{$index}}" data-ng-bind-html="scenario.descriptionHtml">
                             </div>
-                            <a href="" class="view-more" ng-if="scenario.showViewMore"
+                            <a href="" class="view-more" ng-if="scenario.showViewMore && scenario.descriptionHtml !== ''" 
                                 ng-click="scenario.expanded = !scenario.expanded; $event.preventDefault()">
                                 {{ (scenario.expanded ? 'scenarioSimulator.LABEL_VIEW_LESS' : 'scenarioSimulator.LABEL_VIEW_MORE') | translate }}
                             </a>
@@ -54,7 +54,7 @@
                                 <span>{{tags}}</span>
                             </span>
                         </div>
-                        <div>
+                        <div data-ng-if="scenarioPermissions.execute && scenarioPermissions.update && playbookPermission.execute">
                             <button class="btn btn-sm {{ actionPlaybooks[scenario.createdAlertsID ? 'resetScenario' : 'runScenario'].btnClass }}" type="button" data-ng-if="!scenario.running"
                                 data-ng-click="triggerScenario(scenario,$index)">
                                 <i class="{{ actionPlaybooks[scenario.createdAlertsID ? 'resetScenario' : 'runScenario'].icon }}"></i> <span> {{ actionPlaybooks[scenario.createdAlertsID ? 'resetScenario' : 'runScenario'].name }} </span>
