@@ -28,10 +28,6 @@
         "category": [
             "Breach and Attack Simulation (BAS)"
         ],
-        "snapshots": [
-            "https:\/\/repo.fortisoar.fortinet.com\/fsr-widgets\/aiAssistant-6.0.0\/images\/ai_bot_dialog.png",
-            "https:\/\/repo.fortisoar.fortinet.com\/fsr-widgets\/aiAssistant-6.0.0\/images\/playbook_description_reviewresults.png"
-        ],
         "standalone": true,
         "windowClass": "Half Width",
         "help_online":"https://github.com/fortinet-fortisoar/widget-scenario-simulator/blob/release/1.0.0/README.md"
